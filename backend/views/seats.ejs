@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Del luna - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@4.3.2/dist/css/coreui.min.css" rel="stylesheet"
+        integrity="sha384-EeY9vKy5BpcvZvhMsXk8ZQ8iQPdGN/592RjtQrlRTa8fxPZovarAd02WR1WFFk+/" crossorigin="anonymous">
+
+    <!-- Custom fonts for this template-->
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.0/dist/css/coreui.min.css" rel="stylesheet"
+        integrity="sha384-UkVD+zxJKGsZP3s/JuRzapi4dQrDDuEf/kHphzg8P3v8wuQ6m9RLjTkPGeFcglQU" crossorigin="anonymous"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <%- include('partials/sidenav.ejs'); -%>
+
+
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <%- include('partials/navbar'); -%>
+
+                        <!-- End of Topbar -->
+
+                        <!-- Begin Page Content -->
+                        <div class="container-fluid">
+
+                            <!-- Page Heading -->
+                            <!-- Option 1: CoreUI for Bootstrap Bundle with Popper -->
+                            <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.0/dist/js/coreui.bundle.min.js"
+                                integrity="sha384-n0qOYeB4ohUPebL1M9qb/hfYkTp4lvnZM6U6phkRofqsMzK29IdkBJPegsyfj/r4"
+                                crossorigin="anonymous"></script>
+
+                            <!-- Option 2: CoreUI PRO for Bootstrap Bundle with Popper -->
+                            <script
+                                src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@4.3.2/dist/js/coreui.bundle.min.js"
+                                integrity="sha384-AekAC2S7WX3JY6Z9cKOFyCsxgzI1Dq3i5zx2j7WhH3DdYA7/qHSzs4j90SCj9DJV"
+                                crossorigin="anonymous"></script>
+
+                            <!-- Content Row -->
+                            <div class="row">
+                                <div class="container">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item ">
+                                            <a class="nav-link active" data-toggle="tab"
+                                                href="/theaterScreen/seats/<%=theater.id%> ">Home</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link " data-toggle="tab"
+                                                href="/theaterScreen/seats/menu1/<%=theater.id%>">Menu
+                                                1</a>
+                                        </li>
+
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div id="home" class="container tab-pane active"><br>
+                                            <div id="form-wrapper">
+
+                                                <form action="/theaterScreen/seats/post" method="post"
+                                                    style="width: 800px; margin:auto">
+
+                                                    <label for="ask-room-numbers-price">Please specify the
+                                                        seats and its price: </label>
+                                                    <br>
+                                                    <span>
+                                                        <!-- <div class="form-group" id="altloc"><label for="">Rows:
+                                                            </label> <input type="text" id="room-numbers" name="rows"
+                                                                width: 50%;><span> <label for="">Number of tickets:
+                                                                </label>
+                                                                <input type="number" id="room-numbers" name="tickets"
+                                                                    min="0" max="1000" width: 50%;></span><span><label
+                                                                    for="">Each ticket:
+                                                                </label> <input type="number" id="room-numbers"
+                                                                    name="eachticket" min="0" max="1000" width:
+                                                                    50%;></span><span><label for="">Time slot: </label>
+                                                                <input type="number" id="room-numbers" name="timeslot"
+                                                                    min="0" max="1000" width: 50%;></span></div> -->
+                                                        <!-- <div class="specify-numbers-price"
+                                                        style="width: 500px; margin:auto">
+                                                        <label for="room-numbers"> </label>
+                                                        <>
+
+
+                                                        <label for="room-price"> Price (in $): </label>
+                                                        <input type="number" id="room-price" name="room-price" min="0">
+
+                                                    </div> -->
+                                                        <div class="form-group" id="location">
+
+                                                        </div>
+
+                                                        <button id="locationAlternate" type="button"
+                                                            class="btn btn-primary">Add row</button>
+                                                        <br>
+                                                        <!-- <button id="add-more-rooms" onclick="duplicateForm();">Add
+                                                        more rooms</button> -->
+                                                        <br>
+                                                        <select name="active" id="active" class="form-control">
+                                                            <option value="1" selected>Active</option>
+                                                            <option value="0">Inactive</option>
+                                                        </select>
+
+                                                        <br>
+                                                        <div>
+                                                            <input type="hidden" name="user_id" value="<%= user.id%>">
+                                                            <input type="hidden" name="user_name"
+                                                                value="<%= user.email%>">
+                                                            <input type="hidden" name="screen_id"
+                                                                value="<%=theater.id%>">
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <input type="submit" value="Submit"
+                                                                class="btn btn-primary justify-content-center mt-2">
+                                                        </div>
+
+
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%- include('partials/footer.ejs'); -%>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+                            <script>
+                                $('#locationAlternate').on('click', function () {
+                                    $('#location').append('<span><div class="form-group" id="altloc"><label for="">Rows: </label><input type="array" id="room-numbers" name="Rows" size="10";><span> <label for="">Number of tickets: </label> <input type="array" id="room-numbers" name="Number_of_tickets" min="0" max="1000" width: 50%;></span><span><label for="">Each ticket: </label> <input type="array" id="room-numbers" name="Each_ticket" min="0" max="1000" width: 50%;></span></div>');
+                                });
+                                const div = document.getElementById('form-wrapper');
+                                // function duplicateForm() {
+                                //     let forms = div.getElementsByClassName('specify-numbers-price');
+                                //     let firstForm = forms[0];
+                                //     let formClone = firstForm.cloneNode(true);
+                                //     div.appendChild(formClone);
+
+                                // }
+                                //                                 function myFunction() {
+                                //   const node = document.getElementById("myList2");
+                                //   const clone = node.cloneNode(true);
+                                //   document.getElementById("myList1").appendChild(clone);
+                                // }
+                                $(document).ready(function () {
+                                    $("#maincollapsePages").removeClass('collapsed');
+                                    $("#collapsePages").addClass('show');
+                                    $("#theater").addClass('bg-primary text-white');
+
+                                });
+
+                            </script>
+
+</body>
+
+</html>

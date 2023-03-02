@@ -1,0 +1,65 @@
+<%- include('partials/header'); -%>
+
+    <body id="page-top">
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <%- include('partials/sidenav.ejs'); -%>
+                <!-- End of Sidebar -->
+
+                <!-- Content Wrapper -->
+                <div id="content-wrapper" class="d-flex flex-column">
+
+                    <!-- Main Content -->
+                    <div id="content">
+
+                        <!-- Topbar -->
+                        <%- include('partials/navbar'); -%>
+                            <div class="row">
+                                <form action="/theater" method="post" style="width: 500px; margin:auto">
+                                    <input type="hidden" name="_id" value="<%= theater._id %>">
+                                    <div class="form-outline mb-4">
+                                        Theater Name <input type="text" name="theater_name" class="form-control"
+                                            value="<%= theater.theater_name %>"><br>
+                                        Theater Location <input type="text" name="theater_location" class="form-control"
+                                            value="  <%= theater.theater_location %>"><br>
+                                        Theater screen <input type="text" name="theater_screen" class="form-control"
+                                            value="  <%= theater.theater_screen %>"><br>
+                                        <select name="active" id="active" class="form-control">
+                                            <option value="1" <%=theater.active==true ? "selected" : "" %>>Active
+                                            </option>
+                                            <option value="0" <%=theater.active==false ? "selected" : "" %>>Inactive
+                                            </option>
+                                        </select>
+
+
+                                        <div class="d-flex justify-content-around">
+                                            <input type="submit" value="Submit" class="btn btn-primary  mt-2">
+                                            <!-- Default switch -->
+                                            <div class="custom-control custom-switch mt-2">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitches">
+                                                <label class="custom-control-label" for="customSwitches">Active
+                                                </label>
+                                            </div>
+                                        </div>
+                                </form><br><br>
+
+
+                            </div>
+                            <%- include('partials/footer.ejs'); -%>
+                                <script>
+
+
+                                    $(document).ready(function () {
+                                        $("#maincollapsePages").removeClass('collapsed');
+                                        $("#collapsePages").addClass('show');
+                                        $("#theater").addClass('bg-primary text-white');
+
+                                    });
+                                </script>
+
+    </body>
+
+    </html>

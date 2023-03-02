@@ -1,0 +1,165 @@
+<%- include('partials/header'); -%>
+
+    <body id="page-top">
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <%- include('partials/sidenav.ejs'); -%>
+                <!-- End of Sidebar -->
+
+                <!-- Content Wrapper -->
+                <div id="content-wrapper" class="d-flex flex-column">
+
+                    <!-- Main Content -->
+                    <div id="content">
+
+                        <!-- Topbar -->
+                        <%- include('partials/navbar'); -%>
+
+                            <!-- End of Topbar -->
+
+                            <!-- Begin Page Content -->
+                            <div class="container-fluid">
+
+                                <!-- Page Heading -->
+
+
+                                <!-- Content Row -->
+                                <div class="row">
+                                    <div class="container">
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+                                            </li>
+
+                                        </ul>
+
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div id="home" class="container tab-pane active"><br>
+                                                <form action="/cast" method="post" enctype="multipart/form-data"
+                                                    style="width: 500px; margin:auto">
+                                                    <div class="form-outline mb-4">
+                                                        <div>
+                                                            <label for="">Cast Name</label>
+                                                            <input type="text" name="name" class="form-control">
+                                                        </div><br>
+
+
+
+                                                        <!-- Option 1: CoreUI for Bootstrap Bundle with Popper -->
+                                                        <script
+                                                            src="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.0/dist/js/coreui.bundle.min.js"
+                                                            integrity="sha384-n0qOYeB4ohUPebL1M9qb/hfYkTp4lvnZM6U6phkRofqsMzK29IdkBJPegsyfj/r4"
+                                                            crossorigin="anonymous"></script>
+
+                                                        <!-- Option 2: CoreUI PRO for Bootstrap Bundle with Popper -->
+                                                        <script
+                                                            src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@4.3.2/dist/js/coreui.bundle.min.js"
+                                                            integrity="sha384-AekAC2S7WX3JY6Z9cKOFyCsxgzI1Dq3i5zx2j7WhH3DdYA7/qHSzs4j90SCj9DJV"
+                                                            crossorigin="anonymous"></script>
+
+                                                        <div>
+                                                            <input type="hidden" name="user_id" value="<%= user.id%>">
+                                                        </div>
+                                                        <div>
+                                                            <input type="hidden" name="user_name"
+                                                                value="<%= user.email%>">
+                                                        </div>
+                                                        <label for="">status</label><br>
+                                                        <select name="active" id="active" class="form-control">
+                                                            <option value="1" selected>Active</option>
+                                                            <option value="0">Inactive</option>
+                                                        </select>
+                                                        <br>
+                                                        <label for="">Cast Image</label><br>
+                                                        <input type="file" name="Image" accept="image/*">
+                                                        <br>
+
+                                                        <div class="d-flex">
+                                                            <input type="submit" value="Submit"
+                                                                class="btn btn-primary justify-content-center mt-2">
+                                                        </div>
+                                                </form><br><br>
+                                            </div>
+                                        </div>
+                                        <div id="menu1" class="container tab-pane fade"><br>
+                                            <table class=" table w-100 text-center m-auto mt-5 ">
+                                                <thead class="bg-primary  text-white">
+                                                    <tr>
+                                                        <th> S.NO </th>
+                                                        <th>Name</th>
+                                                        <th>Image</th>
+                                                        <th>Created By</th>
+                                                        <th>Edit</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% cast.forEach((Casts,index)=>{ %>
+                                                        <tr class="<%=!Casts.active && " text-danger"%>">
+                                                            <td>
+                                                                <%= index+1 %>
+                                                            </td>
+                                                            <td>
+                                                                <%= Casts.name %>
+                                                            </td>
+                                                            <td>
+                                                                <img src="<%=Casts.Image %>" height="70" width="70"
+                                                                    alt="">
+                                                            </td>
+                                                            <td>
+                                                                <%= user.email%>
+                                                            </td>
+                                                            <td>
+                                                                <a href="/cast/<%=Casts._id %>" class="btn btn-success"
+                                                                    role="button">Edit</a>
+                                                            </td>
+                                                        </tr>
+                                                        <% }) %>
+                                                </tbody>
+                                            </table>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                    </div>
+                </div>
+
+                <!-- Content Row -->
+
+                <!-- Area Chart -->
+
+                <!-- Pie Chart -->
+
+
+                <!-- Content Row -->
+
+
+                <%- include('partials/footer.ejs'); -%>
+                    <script>
+
+                        $(document).ready(function () {
+                            $("#maincollapsePages").removeClass('collapsed');
+                            $("#collapsePages").addClass('show');
+                            $("#Cast").addClass('bg-primary text-white');
+
+                        });
+                    </script>
+
+
+    </body>
+
+    </html>

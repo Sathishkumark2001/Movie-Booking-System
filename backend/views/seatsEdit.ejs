@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Del luna - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../../../css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <%- include('partials/sidenav.ejs'); -%>
+
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <%- include('partials/navbar.ejs'); -%>
+                        <div class="row">
+                            <form action="/theaterScreen/seats/post" method="post" style="width: 500px; margin:auto">
+                                <input type="hidden" name="_id" value="<%=seats._id %>">
+                                <div class="form-outline mb-4">
+                                    Rows<input type="array" name="Rows" class="form-control"
+                                        value="<%= seats.Rows %>"><br>
+                                    Number of tickets<input type="array" name="Number_of_tickets" class="form-control"
+                                        value="<%= seats.Number_of_tickets %>"><br>
+                                    Each ticket<input type="array" name="Each_ticket" class="form-control"
+                                        value="<%= seats.Each_ticket %>"><br>
+
+                                    <!-- Option 1: CoreUI for Bootstrap Bundle with Popper -->
+                                    <script
+                                        src="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.0/dist/js/coreui.bundle.min.js"
+                                        integrity="sha384-n0qOYeB4ohUPebL1M9qb/hfYkTp4lvnZM6U6phkRofqsMzK29IdkBJPegsyfj/r4"
+                                        crossorigin="anonymous"></script>
+
+                                    <!-- Option 2: CoreUI PRO for Bootstrap Bundle with Popper -->
+                                    <script
+                                        src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@4.3.2/dist/js/coreui.bundle.min.js"
+                                        integrity="sha384-AekAC2S7WX3JY6Z9cKOFyCsxgzI1Dq3i5zx2j7WhH3DdYA7/qHSzs4j90SCj9DJV"
+                                        crossorigin="anonymous"></script>
+
+                                    <select name="active" id="active" class="form-control">
+                                        <option value="1" <%=seats.active==true ? "selected" : "" %>>Active
+                                        </option>
+                                        <option value="0" <%=seats.active==false ? "selected" : "" %>>Inactive
+                                        </option>
+                                    </select>
+                                    <br>
+                                    <div class="d-flex">
+                                        <input type="submit" value="Submit"
+                                            class="btn btn-primary justify-content-center mt-2">
+                                    </div>
+
+
+
+                            </form><br><br>
+
+
+                        </div>
+                        <!-- Bootstrap core JavaScript-->
+                        <%- include('partials/footer.ejs'); -%>
+
+                            <script>
+
+                                $(document).ready(function () {
+                                    $("#maincollapsePages").removeClass('collapsed');
+                                    $("#collapsePages").addClass('show');
+                                    $("#theater").addClass('bg-primary text-white');
+
+                                });
+
+                            </script>
+
+</body>
+
+</html>

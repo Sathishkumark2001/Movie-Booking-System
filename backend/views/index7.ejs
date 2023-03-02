@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <title>Document</title>
+
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .input {
+
+            position: relative;
+        }
+
+        .input i {
+
+            position: absolute;
+            top: 16px;
+            left: 11px;
+            color: #989898;
+        }
+
+        .input input {
+
+            text-indent: 25px;
+        }
+    </style>
+
+</head>
+
+<body style="background-color:#dfe3e7">
+    <div style="background-color:#333545;" class=" px-md-5  shadow-lg">
+        <header class="p-3  text-white">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <div class="me-auto">
+                        <img src="images/sathislogo-01-removebg.png" width="150" height="120" alt="">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+    </div>
+    <div class="container ">
+        <div class="row">
+            <div class="col-6">
+
+                <div class="container border mt-5 w-80 bg-light ">
+                    <form class="row">
+                        <div class=" p-2 w-100 bg-danger  ">
+                            <h4 class="text-white
+
+            ">Share your Contact Details</h4>
+                        </div>
+
+                        <div class="col-md-4 mt-2 mb-2">
+                            <input type="email" class="form-control" placeholder="Email Address" id="inputEmail4">
+                        </div>
+                        <div class="col-md-4 mt-2 mb-2">
+
+                            <input type="number" class="form-control" id="inputPassword4 " placeholder="Mobile Number"
+                                value="+91">
+                        </div>
+                        <div class="col-md-4 mt-2 mb-2">
+
+                            <button class="bg-danger rounded border border-light text-light p-2">Continue</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="container border mt-5  pb-2 bg-light">
+                    <form class="row">
+                        <div class=" p-2 w-100 bg-danger  ">
+                            <h4 class="text-white
+
+               ">Credit/ Debit Card</h4>
+                        </div>
+                        <div class="mt-2">
+                            <h5>Enter your Card details
+                            </h5>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <div class="card-header p-0">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-light btn-block text-left p-3 rounded-0"
+                                            data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            <div class="d-flex align-items-center justify-content-between">
+
+                                                <span>Credit card</span>
+                                                <div class="icons">
+                                                    <img src="https://i.imgur.com/2ISgYja.png" width="30">
+                                                    <img src="https://i.imgur.com/W1vtnOV.png" width="30">
+                                                    <img src="https://i.imgur.com/35tC99g.png" width="30">
+                                                    <img src="https://i.imgur.com/2ISgYja.png" width="30">
+                                                </div>
+
+                                            </div>
+                                        </button>
+                                    </h2>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body payment-card-body">
+
+                                        <span class="font-weight-normal card-text">Card Number</span>
+                                        <div class="input">
+
+                                            <i class="fa fa-credit-card"></i>
+                                            <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+
+                                        </div>
+
+                                        <div class="row mt-3 mb-3">
+
+                                            <div class="col-md-6">
+
+                                                <span class="font-weight-normal card-text">Expiry Date</span>
+                                                <div class="input">
+
+                                                    <i class="fa fa-calendar"></i>
+                                                    <input type="text" class="form-control" placeholder="MM/YY">
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-md-6">
+
+                                                <span class="font-weight-normal card-text">CVC/CVV</span>
+                                                <div class="input">
+
+                                                    <i class="fa fa-lock"></i>
+                                                    <input type="text" class="form-control" placeholder="000">
+
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+
+                                        <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Your
+                                            transaction is
+                                            secured with ssl certificate</span><br>
+                                        <button class="bg-danger rounded border border-light text-light p-2">Make
+                                            Payment</button>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 ">
+                <div class="container mt-5 d-grid gap-5 bg-light "
+                    style="border: 1px solid #dfe3e7; padding: 130px 50px;">
+                    <h2 class="text-center">Booking Summary</h2>
+                    <ul>
+                        <div class="row mt-2 ">
+                            <li class="d-flex flex-row">
+
+                                <div class="col-6 text-center">
+                                    <span> ELITE - A1,A2 <span>(2 tickets)</span></span>
+                                </div>
+                                <div class="col-6 text-center">
+                                    <span>Rs. 300</span>
+                                </div>
+
+                            </li>
+                        </div>
+                        <div class="row mt-2">
+                            <li class="d-flex flex-row">
+
+                                <div class="col-6 text-center">
+                                    <span>Convenience fees</span>
+                                </div>
+                                <div class="col-6 text-center">
+                                    <span>Rs. 75.52</span>
+                                </div>
+
+                            </li>
+                        </div>
+                        <hr style="border-top: dotted 1px;" />
+                        <div class="row mt-2">
+                            <li class="d-flex flex-row">
+
+                                <div class="col-6 text-center">
+                                    <span>Sub total</span>
+
+                                </div>
+                                <div class="col-6 text-center">
+                                    <span>Rs.523.52</span>
+                                </div>
+
+                            </li>
+                        </div>
+                        <div class="row mt-5">
+                            <li class="d-flex flex-row" style="background-color: #fffcdc;">
+
+                                <div class="col-6 text-center">
+                                    <span>Amount Payable
+                                    </span>
+
+                                </div>
+                                <div class="col-6 text-center">
+                                    <span>Rs.523.52</span>
+                                </div>
+
+                            </li>
+                        </div>
+
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

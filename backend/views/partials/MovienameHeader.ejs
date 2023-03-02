@@ -1,0 +1,15 @@
+<div class="px-5" style="background-color:#333545;">
+    <div class="ms-5">
+        <a href="" class="text-decoration-none text-white  ">
+
+            <h3>
+                <%=Movie.Movie_name%>
+            </h3>
+            <div class="text-white">
+                <% Movie.genre.forEach((movies,index)=>{ %>
+                    <%= ((index==Movie.genre.length-1)?movies:movies+",") %>
+                        <% }) %>
+            </div>
+        </a>
+    </div>
+</div>

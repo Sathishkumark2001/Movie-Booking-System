@@ -1,0 +1,117 @@
+<%- include('partials/slickerHeader.ejs'); -%>
+
+    <%- include('partials/MovienameHeader.ejs'); -%>
+
+        <%- include('partials/slicker.ejs'); -%>
+
+            <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+                crossorigin="anonymous"></script>
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/svg-with-js.min.css"
+                integrity="sha512-j+8sk90CyNqD7zkw9+AwhRuZdEJRLFBUg10GkELVu+EJqpBv4u60cshAYNOidHRgyaKNKhz+7xgwodircCS01g=="
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+                integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+            <script src="/slick-master/slick-master/slick/slick.js"></script>
+            <script>
+                $(".slider-area ").slick({
+                    dots: true,
+                    infinite: true,
+                    slidesToShow: 5,
+                    slidesToScroll: 1
+                });
+            </script>
+
+            <% Theater.forEach((movies,index)=>{ %>
+
+
+
+                <div class="container bg-white  p-5 ">
+                    <div class="row justify-content-md-center">
+                        <hr>
+                        <div class="col">
+                            <a href="index4/<%=movies._id%>" class="text-decoration-none">
+
+                                <p class="fw-bold text-black ">
+                                    <%=movies.theater_name%>,<%=movies.theater_location%>
+                                </p>
+                            </a>
+
+                        </div>
+                        <div class="col">
+                            <div class="">
+
+                                <%for(var i=0;i<Time.length;i++){%>
+                                    <button type="button" class="btn btn-outline-danger"> <a href="/index5"
+                                            class="text-decoration-none text-dark">
+                                            <%=Time[i]%>
+
+                                        </a></button>
+                                    <% } %>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+
+                    <footer class="mt-5">
+                        <div style="background-color:#333545;">
+                            <footer class="py-3  px-3 ">
+                                <div class="row mt-2">
+                                    <div class="col-5 " style="color: #fff">
+                                        <hr>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-center"><img
+                                            src="../../images/sathislogo-01-removebg.png" width="150" height="120"
+                                            alt="">
+                                    </div>
+                                    <div class="col-5 " style="color: #fff;">
+                                        <hr>
+                                    </div>
+                                </div>
+
+
+                                <div class="d-flex justify-content-center mt-5 ">
+                                    <!-- Facebook -->
+                                    <a style="color: #fff;" href="#!" role="button" class="mx-2"><i
+                                            class="fab fa-facebook-f fa-lg"></i></a>
+
+                                    <!-- Twitter -->
+                                    <a style="color: #fff" href="#!" role="button" class="mx-2"><i
+                                            class="fab fa-twitter fa-lg"></i></a>
+
+
+                                    <!-- Google -->
+                                    <a style="color: #fff;" href="#!" role="button" class="mx-2"><i
+                                            class="fab fa-google fa-lg"></i></a>
+
+
+                                    <!-- Instagram -->
+                                    <a style="color: #fff;" href="#!" role="button" class="mx-2"><i
+                                            class="fab fa-instagram fa-lg"></i></a>
+                                </div>
+                                <p class="text-center text-muted blockquote-footer mt-5">Copyright 2022 ©
+                                    Bigtree
+                                    Entertainment
+                                    Pvt.
+                                    Ltd.
+                                    All Rights
+                                    Reserved.<br>The content and images used on this site are copyright
+                                    protected
+                                    and copyrights
+                                    vests with the respective owners. The usage of the content and images on
+                                    this
+                                    website is
+                                    intended to promote the works and no endorsement of the artist shall be
+                                    implied.
+                                    Unauthorized
+                                    use is prohibited and punishable by law.</p>
+                            </footer>
+                        </div>
+                    </footer>
+
+                    </body>
+
+                    </html>

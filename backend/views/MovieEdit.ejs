@@ -1,0 +1,103 @@
+<%- include('partials/movieheader.ejs'); -%>
+
+    <body id="page-top">
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <%- include('partials/sidenav.ejs'); -%>
+
+                <!-- End of Sidebar -->
+
+                <!-- Content Wrapper -->
+                <div id="content-wrapper" class="d-flex flex-column">
+
+                    <!-- Main Content -->
+                    <div id="content">
+
+                        <!-- Topbar -->
+                        <%- include('partials/navbar.ejs'); -%>
+                            <div class="row">
+                                <form action="/Movies" method="post" style="width: 500px; margin:auto"
+                                    enctype="multipart/form-data">
+                                    <input type="hidden" name="_id" value="<%= Movies._id %>">
+                                    <div class="form-outline mb-4">
+                                        Movie Name<input type="text" name="Movie_name" class="form-control"
+                                            value="<%= Movies.Movie_name %>"><br>
+                                        <!-- Option 1: CoreUI for Bootstrap Bundle with Popper -->
+                                        <script
+                                            src="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.0/dist/js/coreui.bundle.min.js"
+                                            integrity="sha384-n0qOYeB4ohUPebL1M9qb/hfYkTp4lvnZM6U6phkRofqsMzK29IdkBJPegsyfj/r4"
+                                            crossorigin="anonymous"></script>
+
+                                        <!-- Option 2: CoreUI PRO for Bootstrap Bundle with Popper -->
+                                        <script
+                                            src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@4.3.2/dist/js/coreui.bundle.min.js"
+                                            integrity="sha384-AekAC2S7WX3JY6Z9cKOFyCsxgzI1Dq3i5zx2j7WhH3DdYA7/qHSzs4j90SCj9DJV"
+                                            crossorigin="anonymous"></script>
+
+                                        Genre <select name="genre" class="form-multi-select" multiple
+                                            data-coreui-search="true">
+                                            <% Genre.forEach((eachstate,index)=>{ %>
+
+                                                <option value="<%=eachstate.genre %>"
+                                                    <%=Movies.genre.includes(eachstate.genre) ? "selected" : "" %>
+                                                    >
+                                                    <%=eachstate.genre%>
+                                                </option>
+                                                <% }) %>
+
+                                        </select> <br>
+                                        Language <select name="Language" class="form-multi-select" multiple
+                                            data-coreui-search="true">
+                                            <% Language.forEach((language,index)=>{ %>
+
+                                                <option value="<%=language.language%>"
+                                                    <%=Movies.Language.includes(language.language) ? "selected" : "" %>>
+                                                    <%=language.language%>
+                                                </option>
+                                                <% }) %>
+
+                                        </select> <br>
+                                        <select name="active" id="active" class="form-control">
+                                            <option value="1" <%=Movies.active==true ? "selected" : "" %>>Active
+                                            </option>
+                                            <option value="0" <%=Movies.active==false ? "selected" : "" %>>Inactive
+                                            </option>
+                                        </select>
+                                        <br>
+                                        <label for="myImage">Movie Image</label><br>
+                                        <input type="hidden" name="oldImage" value="<%=Movies.myImage%>"
+                                            accept="image/*">
+                                        <input type="file" name="myImage" accept="image/*">
+                                        <img src="/<%=Movies.myImage%>" height="70" width="70" alt="">
+                                        <br>
+                                        <div class="d-flex">
+                                            <input type="submit" value="Submit"
+                                                class="btn btn-primary justify-content-center mt-2">
+                                        </div>
+
+
+
+                                </form><br><br>
+
+
+                            </div>
+                            <!-- Bootstrap core JavaScript-->
+                            <%- include('partials/footer.ejs'); -%>
+
+                                <script>
+
+                                    $(document).ready(function () {
+                                        $("#maincollapsePages").removeClass('collapsed');
+                                        $("#collapsePages").addClass('show');
+                                        $("#Movies").addClass('bg-primary text-white');
+
+                                    });
+
+                                </script>
+
+    </body>
+
+    </html>

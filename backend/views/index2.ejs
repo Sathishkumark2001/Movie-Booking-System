@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+
+    <title>Document</title>
+    <style>
+        #project1:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="background-color:#333545;" class=" px-md-5  shadow-lg">
+        <header class="p-3  text-white">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <div class="me-auto">
+                        <img src="../images/sathislogo-01-removebg.png" width="150" height="120" alt="">
+                    </div>
+
+                    <form class="col-md-6 me-auto">
+                        <input type="search" class="form-control form-control-dark" placeholder="Search..."
+                            aria-label="Search">
+                    </form>
+
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+                        <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+                        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+                    </ul>
+
+
+                    <div class="text-end">
+                        <% if(user) { %>
+                            <button type="button" class="btn btn-outline-light me-2" id="project1"> <a href="/logout"
+                                    class="text-decoration-none text-white ">Logout</a>
+                            </button>
+                            <% } else { %> <button type="button" class="btn btn-outline-light me-2"
+                                    id="project1">Login</button>
+                                <button type="button" class="btn btn-danger" id="project1">Sign-in</button>
+                                <% } %>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+    </div>
+
+    <div
+        style="background-image: linear-gradient(to left, rgba(0,0,0,0.5), rgba(0,0,0,1)), url('../<%=selectedmovie.backImage%>');width: 100%;height:30rem ;background-repeat: no-repeat; background-size: cover;">
+        <div class="d-flex justify-content-evenly">
+            <div class="mt-2">
+                <div class="card border-0">
+
+                    <img src="../<%=selectedmovie.myImage %>" class=" card-img-top " alt=" ..." height="400"
+                        width="150px">
+                    <div class="card-body bg-black">
+                        <p class="card-text text-white text-center">in cinemas </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <div>
+                    <h2 class="text-white">
+                        <%=selectedmovie.Movie_name %>
+                    </h2>
+                    <h6 class="  "><a href="" class="text-decoration-none text-white ">
+                            <% selectedmovie.Language.forEach((movies,index)=>{ %>
+                                <%= ((index==selectedmovie.Language.length-1)?movies:movies+",") %>
+                                    <% }) %>
+                        </a>
+                    </h6>
+                    </p>
+                    <p class="text-white">
+                        <% selectedmovie.genre.forEach((movies,index)=>{ %>
+                            <%= ((index==selectedmovie.genre.length-1)?movies:movies+",") %>
+                                <% }) %>
+
+                    </p>
+                    <div class="text-white">
+                        <%=selectedmovie.duration %>
+                            <span> • </span>
+                            <%=selectedmovie.certification %>
+                                <span> • </span>
+                                <%=selectedmovie.release_date %>
+                    </div>
+                    <br>
+
+
+                    <button type="button" class="btn btn-danger btn-lg  "> <a href="index3/<%=selectedmovie._id%>"
+                            class="text-decoration-none text-white">Book
+                            tickets</a></button>
+
+                </div>
+            </div>
+            <div class="mt-5">
+                <div>
+                    <button class="bg-black  ">
+                        <h4 class="text-white "> <span class="  p-2"><i
+                                    class="fa-sharp fa-solid fa-share-nodes"></i></span>Share
+                        </h4>
+                    </button>
+                </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+
+        <section><span>
+                <h4>About the movie</h4>
+                <div><span>
+                        <%=selectedmovie.description %>
+                    </span></div>
+                <hr>
+            </span></section>
+    </div>
+    <div class="container">
+        <h4 class="">Cast</h4>
+        <div class="d-flex ">
+            <% cast.forEach((movies)=>{ %>
+                <div class="p-4">
+                    <div><a href="" class="text-decoration-none ">
+                            <img alt="Ranbir Kapoor" width="120px" height="120px"
+                                style="border-radius: 60px; opacity: 1;" src="../<%=movies.Image%>">
+                    </div>
+                    <h5 class="text-black ">
+                        <%=movies.name%>
+                    </h5>
+                    </a>
+                </div>
+                <% }) %>
+
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <h4 class="">Crew</h4>
+
+        <div class="d-flex ">
+            <% crew.forEach((movies,index)=>{ %>
+                <div class="p-4">
+                    <div><a href="" class="text-decoration-none ">
+                            <img alt="Ranbir Kapoor" width="120px" height="120px"
+                                style="border-radius: 60px; opacity: 1;" src="../<%=movies.Image%>">
+                    </div>
+                    <h5 class="text-black ">
+                        <%=movies.name%>
+                    </h5>
+                    </a>
+                </div>
+                <% }) %>
+
+
+
+        </div>
+    </div>
+    <footer class="mt-5">
+        <div style="background-color:#333545;">
+            <footer class="py-3  px-3 ">
+                <div class="row mt-2">
+                    <div class="col-5 " style="color: #fff">
+                        <hr>
+                    </div>
+                    <div class="col-2 d-flex justify-content-center"> <img src="../images/sathislogo-01-removebg.png"
+                            width="150" height="120" alt=""></div>
+
+                    <div class="col-5 " style="color: #fff;">
+                        <hr>
+                    </div>
+                </div>
+
+
+                <div class="d-flex justify-content-center mt-5 ">
+                    <!-- Facebook -->
+                    <a style="color: #fff;" href="#!" role="button" class="mx-2"><i
+                            class="fab fa-facebook-f fa-lg"></i></a>
+
+                    <!-- Twitter -->
+                    <a style="color: #fff" href="#!" role="button" class="mx-2"><i class="fab fa-twitter fa-lg"></i></a>
+
+
+                    <!-- Google -->
+                    <a style="color: #fff;" href="#!" role="button" class="mx-2"><i class="fab fa-google fa-lg"></i></a>
+
+
+                    <!-- Instagram -->
+                    <a style="color: #fff;" href="#!" role="button" class="mx-2"><i
+                            class="fab fa-instagram fa-lg"></i></a>
+                </div>
+                <p class="text-center text-muted blockquote-footer mt-5">Copyright 2022 © Bigtree
+                    Entertainment
+                    Pvt.
+                    Ltd.
+                    All Rights
+                    Reserved.<br>The content and images used on this site are copyright protected
+                    and copyrights
+                    vests with the respective owners. The usage of the content and images on this
+                    website is
+                    intended to promote the works and no endorsement of the artist shall be implied.
+                    Unauthorized
+                    use is prohibited and punishable by law.</p>
+            </footer>
+        </div>
+    </footer>
+
+</body>
+
+</html>

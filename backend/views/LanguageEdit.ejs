@@ -1,0 +1,54 @@
+<%- include('partials/header'); -%>
+
+    <body id="page-top">
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <%- include('partials/sidenav.ejs'); -%>
+                <!-- End of Sidebar -->
+
+                <!-- Content Wrapper -->
+                <div id="content-wrapper" class="d-flex flex-column">
+
+                    <!-- Main Content -->
+                    <div id="content">
+
+                        <!-- Topbar -->
+                        <%- include('partials/navbar'); -%>
+                            <div class="row">
+                                <form action="/Language" method="post" style="width: 500px; margin:auto">
+                                    <input type="hidden" name="_id" value="<%= languages._id %>">
+                                    <div class="form-outline mb-4">
+                                        Language <input type="text" name="language" class="form-control"
+                                            value="<%=languages.language%>"><br>
+
+
+
+
+                                        <div class="d-flex justify-content-around">
+                                            <input type="submit" value="Submit" class="btn btn-primary  mt-2">
+                                            <!-- Default switch -->
+                                            <div class="custom-control custom-switch mt-2">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitches">
+                                                <label class="custom-control-label" for="customSwitches">Active
+                                                </label>
+                                            </div>
+                                        </div>
+                                </form><br><br>
+
+
+                            </div>
+
+                            <%- include('partials/footer.ejs'); -%>
+                                <script>
+                                    $(document).ready(function () {
+                                        $("#maincollapseTwo").removeClass('collapsed');
+                                        $("#collapseTwo").addClass('show');
+                                        $("#language").addClass('bg-primary text-white');
+                                    });
+                                </script>
+    </body>
+
+    </html>
